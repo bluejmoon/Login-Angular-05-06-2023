@@ -1,0 +1,20 @@
+<form>
+    <div>
+        <label for="">Nombre</label><br>
+        <input type="text" name="name">
+    </div>
+
+    <div>
+        <label for="">Correo</label><br>
+        <input type="email" name="email">
+    </div>
+
+    <div>
+        <label for="">Contraseña</label><br>
+        <input type="password" name="password">
+    </div>
+    <div>
+        <label for="">Nueva imagen</label><br>
+        <input type="file" name="picture" (change)="onFileSelected($event)">
+    </div>
+</form>
