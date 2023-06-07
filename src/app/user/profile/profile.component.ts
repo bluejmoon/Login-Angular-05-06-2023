@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserservicesService } from 'src/app/services/userservices.service';
 
 @Component({
@@ -9,11 +9,33 @@ import { UserservicesService } from 'src/app/services/userservices.service';
 export class ProfileComponent {
   selectFile!:File;
   userProfile!:any;
+  editValue:boolean=false;
+
+  editProfile(){
+    this.editValue=true;
+  }
 
   constructor(private UserService: UserservicesService){}
 
+  ngOnInit(){
+    this.getUser();
+  }
+
   getUser(){
-    this.userProfile = this.UserService.getUser()
+    this.UserService.getUser()
+    .subscribe(
+      (response:any) => {
+        console.log("response: ",response);
+        this.userProfile = response;
+      },
+      (error) => {
+        console.log("Error: ", error);
+      }
+    )
+  }
+
+  cancelUpdate(){
+    this.editValue=false;
   }
 
   onFileSelected(event:any){
