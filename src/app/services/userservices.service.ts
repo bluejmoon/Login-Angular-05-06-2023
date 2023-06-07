@@ -59,20 +59,7 @@ export class UserservicesService {
 
   getUser(){
     const getUrl = `${this.ApiUrl}/${this.userEmail}`;
-    return this.http.get(getUrl)
-    .subscribe(
-      (response:any) => {
-        console.log("response: ",response);
-        return response
-      },
-      (error) => {
-        console.log("Error: ", error);
-      }
-    )
-  }
-
-  updateUser(){
-    const updateUrl = `${this.ApiUrl}`
+    return this.http.get(getUrl);
   }
 
   private getAuthHeaders():HttpHeaders{
