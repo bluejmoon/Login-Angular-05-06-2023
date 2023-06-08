@@ -62,6 +62,23 @@ export class UserservicesService {
     return this.http.get(getUrl);
   }
 
+  updateUser(body:any){
+    const updateUrl = `${this.ApiUrl}/update/${body._id}`
+    const formData = body
+
+    console.log("Usuario actualizado con éxito", formData, updateUrl);
+
+    this.http.put(updateUrl,formData)
+    .subscribe(
+      (response:any) => {
+        console.log("Usuario actualizado con éxito. ", response);
+      },
+      (error) => {
+        console.log("Error: ", error);
+      }
+    )
+  }
+
   private getAuthHeaders():HttpHeaders{
     const authToken = localStorage.getItem("token");
     const headers = new HttpHeaders({"Authorization":`Bearer ${authToken}`});
