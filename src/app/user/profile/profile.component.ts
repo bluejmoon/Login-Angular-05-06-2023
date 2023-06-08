@@ -41,4 +41,8 @@ export class ProfileComponent {
   onFileSelected(event:any){
     this.selectFile = event.target.files[0];
   }
+
+  updateProfile(){
+    this.UserService.updateUser(this.userProfile)
+  }
 }
