@@ -68,7 +68,7 @@ export class UserservicesService {
 
     console.log("Usuario actualizado con éxito", formData, updateUrl);
 
-    this.http.put(updateUrl,formData)
+    this.http.put(updateUrl,formData,{headers:this.getAuthHeaders()})
     .subscribe(
       (response:any) => {
         console.log("Usuario actualizado con éxito. ", response);
